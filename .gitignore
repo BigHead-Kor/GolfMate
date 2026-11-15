@@ -11,6 +11,7 @@ captures/
 
 # Build artifacts and signing material
 *.apk
+!/apk/*_release.apk
 *.aab
 *.jks
 *.keystore

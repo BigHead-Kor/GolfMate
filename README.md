@@ -36,6 +36,23 @@ sh gradlew :app:assembleDebug :app:testDebugUnitTest
 
 빌드가 성공하면 APK는 `app/build/outputs/apk/debug/app-debug.apk`에 생성됩니다. 내비 및 한국어 음성 경로를 검증하려면 해당 Pleos 서비스가 동작하는 환경이 필요합니다.
 
+## 공모전 제출 APK
+
+| 테스트 환경 | 설정 |
+| --- | --- |
+| Pleos Connect Emulator | v2.1.0 · Android 14 (API 34) · ARM64 |
+| AVD 디스플레이 | 2560 × 1440 px · 가로형 (16:9) · 160 dpi |
+
+서명된 release APK의 제출 경로는 `apk/GolfMate_GolfMate_release.apk`입니다. 파일명은 팀명과 앱 이름이 모두 GolfMate인 경우의 표기입니다.
+
+Pleos Connect Emulator를 실행하고 ADB에서 에뮬레이터가 연결된 상태로 프로젝트 루트에서 설치합니다.
+
+```sh
+adb install -r apk/GolfMate_GolfMate_release.apk
+```
+
+설치한 뒤 앱 목록에서 Golf Mate를 엽니다. 기존 디버그 빌드가 다른 키로 서명돼 있으면 업데이트 설치가 거절될 수 있습니다. 이 경우 별도 AVD에서 확인하거나, 기존 앱 데이터 삭제가 가능한 경우에만 기존 앱을 제거한 뒤 설치합니다.
+
 ## 알려진 제한사항
 
 - 골프장 자동 판별은 목적지 이름 키워드 기준입니다. 약칭이나 예외 명칭에서 오탐·누락이 가능합니다.
